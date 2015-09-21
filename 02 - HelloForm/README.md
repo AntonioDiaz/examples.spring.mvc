@@ -1,1 +1,1 @@
-Example of how to send a form with Spring MVC 3.2.
+Example of how to work with forms in Spring MVC 3.2.
