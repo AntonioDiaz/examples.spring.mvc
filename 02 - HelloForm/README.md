@@ -1,0 +1,1 @@
+Example of how to send a form with Spring MVC 3.2.
