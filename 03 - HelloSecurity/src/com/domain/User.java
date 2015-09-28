@@ -86,6 +86,10 @@ public class User implements UserDetails{
 		this.enabled = enabled;
 	}
 
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
 	@Override
 	public String toString() {
 	    return ToStringBuilder.reflectionToString(this);
