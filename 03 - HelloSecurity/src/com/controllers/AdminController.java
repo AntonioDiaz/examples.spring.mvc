@@ -9,12 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping ("/admin")
 public class AdminController {
 
-	/*private static final Logger logger = Logger.getLogger(AdminController.class);*/ 
-	
 	@RequestMapping (value="/userslist", method=RequestMethod.GET)
 	public String goUsersList(){
 		return "admin_users";
 	}
-
-	
 }
