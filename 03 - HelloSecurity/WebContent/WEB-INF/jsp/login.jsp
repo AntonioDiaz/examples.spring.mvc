@@ -19,7 +19,5 @@
 			Caused : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
 		</div>
 	</c:if>
-
-
 </body>
 </html>

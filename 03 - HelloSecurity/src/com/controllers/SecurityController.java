@@ -38,5 +38,4 @@ public class SecurityController {
 	public String goTest(ModelMap modelMap){
 		return "test";
 	}
-
 }
