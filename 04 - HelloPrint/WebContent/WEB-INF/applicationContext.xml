@@ -9,7 +9,7 @@
             http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<context:component-scan base-package="com" />
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-	    <property name="order" value="2"></property>
+		<property name="order" value="2"></property>
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
 		</property>
@@ -17,10 +17,8 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
 		<property name="order" value="1"></property>
 		<property name="basename" value="views"></property>
 	</bean>
-
 </beans>

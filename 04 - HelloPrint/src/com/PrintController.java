@@ -1,5 +1,7 @@
 package com;
 
+import java.util.Arrays;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +13,10 @@ public class PrintController {
 
 	@RequestMapping(value = "/getPdf", method = RequestMethod.GET)
 	public ModelAndView getPdf() {
-		return new ModelAndView("pdfView", "listBooks", null);
+		ModelAndView modelAndView = new ModelAndView("pdfView");
+		String[] libros = new String[]{"El Quijote", "La celestina"};		
+		modelAndView.addObject("libros_list", Arrays.asList(libros));
+		return modelAndView;
 	}
 
 	@RequestMapping(value = "/helloWeb", method = RequestMethod.GET)
