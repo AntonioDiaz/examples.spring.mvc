@@ -9,7 +9,6 @@
 		<spring.version>4.1.4.RELEASE</spring.version>
 		<jstl.version>1.2</jstl.version>
 		<log4j.version>1.2.17</log4j.version>
-		<tiles.version>3.0.5</tiles.version>
 		<objectify.version>5.0.1</objectify.version>
 		<apache.commons.version>3.4</apache.commons.version>
 	</properties>
