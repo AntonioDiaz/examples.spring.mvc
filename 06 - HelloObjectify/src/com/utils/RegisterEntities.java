@@ -4,20 +4,17 @@ package com.utils;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.dao.CustomerDAO;
 import com.domain.Customer;
 import com.domain.Order;
 import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Ref;
 import com.services.CustomerManager;
 import com.services.OrderManager;
-
-import org.apache.log4j.Logger;
-
-import java.util.concurrent.ThreadLocalRandom;
 
 
 public class RegisterEntities {
