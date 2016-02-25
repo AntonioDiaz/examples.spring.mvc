@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -34,7 +35,13 @@ public class PersonDAOImpl implements PersonDAO {
 	}
 
 	@Override
-	public List<Person> getAllPerson() {
+	public List<Person> getPersonAll() {
 		return entityManager.createQuery("Select a From Person a", Person.class).getResultList();
+	}
+
+	@Override
+	public Person getPersonById(Long id) {
+		TypedQuery<Person> typedQuery = entityManager.createQuery("Select a From Person a Where a.id=:person_id", Person.class);		
+		return typedQuery.setParameter("person_id", id).getSingleResult();
 	}
 }

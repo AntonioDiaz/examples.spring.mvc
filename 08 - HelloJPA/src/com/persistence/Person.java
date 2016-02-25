@@ -1,5 +1,6 @@
 package com.persistence;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Person {
 	@Column(name = "LAST_NAME")
 	private String lastName;
 
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})	
 	@JoinColumn(name = "ID_CARD_ID")
 	private IdCard idCard;
 	
