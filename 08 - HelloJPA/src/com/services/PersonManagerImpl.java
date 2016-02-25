@@ -37,4 +37,9 @@ public class PersonManagerImpl implements PersonManager {
 	public List<Person> queryPersonByNameLike(String name) throws Exception {
 		return personDAO.getPersonByNameLike(name);
 	}
+
+	@Override
+	public void updteUser(Person person) throws Exception {
+		personDAO.update(person);
+	}
 }

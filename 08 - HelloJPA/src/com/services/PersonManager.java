@@ -8,6 +8,8 @@ public interface PersonManager {
 
 	public void createUser(Person person) throws Exception;
 	
+	public void updteUser(Person person) throws Exception;
+	
 	public List<Person> queryPersonAll() throws Exception;
 	
 	public Person queryPersonById(Long id) throws Exception;

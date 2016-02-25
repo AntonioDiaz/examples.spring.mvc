@@ -71,12 +71,13 @@ public class PersonDAOImpl implements PersonDAO {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Person> query = builder.createQuery(Person.class);
 		Root<Person> personRoot = query.from(Person.class);
+
 		/* create like expresion. */ 
 		EntityType<Person> type = entityManager.getMetamodel().entity(Person.class);
 		SingularAttribute<Person, String> declaredSingularAttribute = type.getDeclaredSingularAttribute("firstName", String.class);
 		Path<String> path = personRoot.get(declaredSingularAttribute);
 		Expression<String> expresion = builder.lower(path);
-		
+
 		query.where(builder.like(expresion, name + "%"));
 		return entityManager.createQuery(query).getResultList();
 	}
