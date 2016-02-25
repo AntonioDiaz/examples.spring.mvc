@@ -9,7 +9,11 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.EntityType;
+import javax.persistence.metamodel.SingularAttribute;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -54,11 +58,26 @@ public class PersonDAOImpl implements PersonDAO {
 	}
 
 	@Override
-	public List<Person> getPersonByName(String name) {
+	public List<Person> getPersonByNameEqual(String name) {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Person> query = builder.createQuery(Person.class);
 		Root<Person> personRoot = query.from(Person.class);
 		query.where(builder.equal(personRoot.get("firstName"), name));
+		return entityManager.createQuery(query).getResultList();
+	}
+	
+	@Override
+	public List<Person> getPersonByNameLike(String name) {
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Person> query = builder.createQuery(Person.class);
+		Root<Person> personRoot = query.from(Person.class);
+		/* create like expresion. */ 
+		EntityType<Person> type = entityManager.getMetamodel().entity(Person.class);
+		SingularAttribute<Person, String> declaredSingularAttribute = type.getDeclaredSingularAttribute("firstName", String.class);
+		Path<String> path = personRoot.get(declaredSingularAttribute);
+		Expression<String> expresion = builder.lower(path);
+		
+		query.where(builder.like(expresion, name + "%"));
 		return entityManager.createQuery(query).getResultList();
 	}
 }

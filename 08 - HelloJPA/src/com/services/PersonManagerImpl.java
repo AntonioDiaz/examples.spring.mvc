@@ -30,6 +30,11 @@ public class PersonManagerImpl implements PersonManager {
 
 	@Override
 	public List<Person> queryPersonByNameEqual(String name) throws Exception {
-		return personDAO.getPersonByName(name);
+		return personDAO.getPersonByNameEqual(name);
+	}
+	
+	@Override
+	public List<Person> queryPersonByNameLike(String name) throws Exception {
+		return personDAO.getPersonByNameLike(name);
 	}
 }
