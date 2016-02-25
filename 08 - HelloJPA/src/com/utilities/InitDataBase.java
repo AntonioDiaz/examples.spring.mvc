@@ -17,8 +17,8 @@ public class InitDataBase {
 		logger.debug("init DATABASE");
 		Person person = new Person();
 		try {
-			person.setFirstName("Lorenzo");
-			person.setLastName("Arroyo");
+			person.setFirstName("Lobezno");
+			person.setLastName("Muñoz Torrijos");
 			personManager.createUser(person);
 		} catch (Exception e) {
 			logger.error(e);
