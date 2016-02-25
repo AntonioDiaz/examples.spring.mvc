@@ -12,4 +12,8 @@ public interface PersonManager {
 	
 	public Person queryPersonById(Long id) throws Exception;
 	
+	
+	public List<Person> queryPersonByNameEqual(String name) throws Exception;
+	
+	
 }
