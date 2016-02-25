@@ -18,5 +18,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-
+	
+	<bean id="initDataBase" class="com.InitDataBase" init-method="init"/>
+	
 </beans>    
