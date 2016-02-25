@@ -51,4 +51,6 @@
 		<property name="password" value="test_user" />
 	</bean>
 
+	<bean id="initDataBase" class="com.utilities.InitDataBase" init-method="init"/>
+
 </beans>    
