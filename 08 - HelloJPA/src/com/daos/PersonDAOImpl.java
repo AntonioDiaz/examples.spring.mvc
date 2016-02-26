@@ -56,6 +56,16 @@ public class PersonDAOImpl implements PersonDAO {
 		} catch (NoResultException e) {	}
 		return person;
 	}
+	
+	@Override
+	public Person getPersonByIdJoin(Long id) {
+		TypedQuery<Person> typedQuery = entityManager.createQuery("Select a From Person a left join fetch a.phones s Where s.id=:person_id", Person.class);
+		Person person = null;
+		try {
+			person = typedQuery.setParameter("person_id", id).getSingleResult();
+		} catch (NoResultException e) {	}
+		return person;
+	}
 
 	@Override
 	public List<Person> getPersonByNameEqual(String name) {

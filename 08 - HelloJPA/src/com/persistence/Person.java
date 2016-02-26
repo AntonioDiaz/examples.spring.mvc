@@ -34,7 +34,7 @@ public class Person {
 	@JoinColumn(name = "ID_CARD_ID")
 	private IdCard idCard;
 
-	@OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Phone> phones = new ArrayList<>();
 
 	public Long getId() {

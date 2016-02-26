@@ -10,8 +10,11 @@ public interface PersonDAO extends GenericDAO<Person> {
 	
 	public Person getPersonById(Long id);
 	
+	public Person getPersonByIdJoin(Long id);
+	
 	public List<Person> getPersonByNameEqual(String name);
 	
 	public List<Person> getPersonByNameLike(String name);
+
 	
 }

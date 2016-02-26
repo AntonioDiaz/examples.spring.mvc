@@ -27,6 +27,11 @@ public class PersonManagerImpl implements PersonManager {
 	public Person queryPersonById(Long id) throws Exception {
 		return personDAO.getPersonById(id);
 	}
+	
+	@Override
+	public Person queryPersonByIdJoin(Long id) throws Exception {
+		return personDAO.getPersonByIdJoin(id);
+	}
 
 	@Override
 	public List<Person> queryPersonByNameEqual(String name) throws Exception {
