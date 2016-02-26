@@ -91,4 +91,12 @@ public class PersonDAOImpl implements PersonDAO {
 		query.where(builder.like(expresion, name + "%"));
 		return entityManager.createQuery(query).getResultList();
 	}
+
+	@Override
+	public List<Person> getPersonsByPhone(String myPhone) {
+		List<Person> resultList = null;
+		TypedQuery<Person> typedQuery = entityManager.createQuery("Select a From Person a left join fetch a.phones s Where s.number=:my_number", Person.class);
+		resultList = typedQuery.setParameter("my_number", myPhone).getResultList();
+		return resultList;
+	}
 }

@@ -16,6 +16,8 @@ public interface PersonManager {
 	
 	public Person queryPersonByIdJoin(Long id) throws Exception;
 	
+	public Person queryPersonByPhone(String myPhone) throws Exception;
+	
 	public List<Person> queryPersonByNameEqual(String name) throws Exception;
 
 	public List<Person> queryPersonByNameLike(String name) throws Exception;

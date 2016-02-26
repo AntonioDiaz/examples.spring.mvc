@@ -51,7 +51,8 @@ public class InitDataBase {
 				e.printStackTrace();
 			}			
 			logger.info("query-7 " + personManager.queryPersonByIdJoin(new Long(1)));
-			
+			Person queryPersonByPhone = personManager.queryPersonByPhone("1234-1234-1234-1234");
+			logger.info("query-8 " + queryPersonByPhone);
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
