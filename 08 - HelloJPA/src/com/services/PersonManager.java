@@ -18,8 +18,11 @@ public interface PersonManager {
 	
 	public Person queryPersonByPhone(String myPhone) throws Exception;
 	
+	public Person queryPersonByPhoneCriteria(String myPhone) throws Exception;
+	
 	public List<Person> queryPersonByNameEqual(String name) throws Exception;
 
 	public List<Person> queryPersonByNameLike(String name) throws Exception;
+
 
 }

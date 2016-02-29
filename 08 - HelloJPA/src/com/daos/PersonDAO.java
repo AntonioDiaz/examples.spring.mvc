@@ -17,6 +17,6 @@ public interface PersonDAO extends GenericDAO<Person> {
 	public List<Person> getPersonByNameLike(String name);
 
 	public List<Person> getPersonsByPhone(String myPhone);
-
 	
+	public List<Person> getPersonsByPhoneCriteria(String myPhone);
 }

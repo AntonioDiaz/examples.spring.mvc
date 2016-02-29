@@ -14,8 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
 @Entity
 @Table(name = "T_PERSON")
 public class Person {
@@ -34,7 +32,7 @@ public class Person {
 	@JoinColumn(name = "ID_CARD_ID")
 	private IdCard idCard;
 
-	@OneToMany(mappedBy = "person", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "person", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Phone> phones = new ArrayList<>();
 
 	public Long getId() {
@@ -77,9 +75,9 @@ public class Person {
 		this.phones = phones;
 	}
 
-	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
+//	@Override
+//	public String toString() {
+//		return ToStringBuilder.reflectionToString(this);
+//	}
 
 }

@@ -52,11 +52,25 @@ public class PersonManagerImpl implements PersonManager {
 	public Person queryPersonByPhone(String myPhone) throws Exception {
 		Person person = null;
 		List<Person> persons = personDAO.getPersonsByPhone(myPhone);
-			if (persons.size() > 1) {
-				throw new Exception("More than one person.");
-			} else if (persons.size()==0) {
-				person = persons.get(0);
-			}
+		if (persons.size() > 1) {
+			throw new Exception("More than one person.");
+		}
+		if (persons.size()==1) {
+			person = persons.get(0);
+		}
+		return person;
+	}
+	
+	@Override	
+	public Person queryPersonByPhoneCriteria(String myPhone) throws Exception {
+		Person person = null;
+		List<Person> persons = personDAO.getPersonsByPhoneCriteria(myPhone);
+		if (persons.size() > 1) {
+			throw new Exception("More than one person.");
+		}
+		if (persons.size()==1) {
+			person = persons.get(0);
+		}
 		return person;
 	}
 }

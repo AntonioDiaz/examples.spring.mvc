@@ -1,5 +1,6 @@
 package com.daos;
 
+
 public interface GenericDAO<T> {
 	
 	public void create(T item) throws Exception;

@@ -10,8 +10,12 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Fetch;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Root;
+import javax.persistence.criteria.SetJoin;
 import javax.persistence.metamodel.EntityType;
 import javax.persistence.metamodel.SingularAttribute;
 
@@ -19,6 +23,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.persistence.Person;
+import com.persistence.Phone;
 
 @Repository
 @Transactional
@@ -97,6 +102,37 @@ public class PersonDAOImpl implements PersonDAO {
 		List<Person> resultList = null;
 		TypedQuery<Person> typedQuery = entityManager.createQuery("Select a From Person a left join fetch a.phones s Where s.number=:my_number", Person.class);
 		resultList = typedQuery.setParameter("my_number", myPhone).getResultList();
+		return resultList;
+	}
+	
+	@Override
+	public List<Person> getPersonsByPhoneCriteria(String myPhone) {
+		List<Person> resultList = null;
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Person> query = builder.createQuery(Person.class);
+		Root<Person> personRoot = query.from(Person.class);
+		Join<Object, Object> join = personRoot.join("phones",  JoinType.LEFT);
+		query.where(builder.equal(join.get("number"), myPhone));
+//		Path<Object> path = join.get("number");
+//		path.
+//		query.where(path)
+		//query.where(builder.equal(personRoot.get("firstName"), myPhone));
+		
+		//query.where(builder.equal(myFetch.get("firstName"), myPhone));
+		resultList = entityManager.createQuery(query).getResultList();
+		return resultList;
+	}
+	
+	
+	public List<Person> getPersonsByPhoneCriteriaAux(String myPhone) {
+		List<Person> resultList = null;
+		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Person> query = builder.createQuery(Person.class);
+		Root<Person> personRoot = query.from(Person.class);		
+		Fetch<Person, Phone> myFetch = personRoot.fetch("phones",  JoinType.LEFT);
+		query.where(builder.equal(personRoot.get("firstName"), myPhone));
+		//query.where(builder.equal(myFetch.get("firstName"), myPhone));
+		resultList = entityManager.createQuery(query).getResultList();
 		return resultList;
 	}
 }

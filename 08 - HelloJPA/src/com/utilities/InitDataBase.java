@@ -51,8 +51,14 @@ public class InitDataBase {
 				e.printStackTrace();
 			}			
 			logger.info("query-7 " + personManager.queryPersonByIdJoin(new Long(1)));
-			Person queryPersonByPhone = personManager.queryPersonByPhone("1234-1234-1234-1234");
-			logger.info("query-8 " + queryPersonByPhone);
+			Person queryPersonByPhone = personManager.queryPersonByPhone("656-654-645");
+			logger.info("query-8 " + queryPersonByPhone.getPhones());
+			
+			Person personByPhoneCriteria = personManager.queryPersonByPhoneCriteria("656-654-645");
+			logger.info("query-9 " + personByPhoneCriteria);
+			logger.info("query-10 " + personByPhoneCriteria.getPhones());
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
