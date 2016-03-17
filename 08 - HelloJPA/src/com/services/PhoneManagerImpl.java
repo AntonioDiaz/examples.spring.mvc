@@ -9,10 +9,16 @@ import com.persistence.Phone;
 @Service
 public class PhoneManagerImpl implements PhoneManager {
 
-	@Autowired private PhoneDAO phoneDAO;
-	
+	@Autowired
+	private PhoneDAO phoneDAO;
+
 	@Override
 	public void createPhone(Phone phone) throws Exception {
 		phoneDAO.create(phone);
+	}
+
+	@Override
+	public void updatePhone(Phone phone) throws Exception {
+		phoneDAO.update(phone);
 	}
 }

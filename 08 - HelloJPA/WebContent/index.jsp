@@ -6,7 +6,7 @@
 <title>HelloController</title>
 </head>
 <body>
-	<h1>Spring MVC dummy example.</h1>
+	<h1>Spring MVC with JPA dummy example.</h1>
 	<br>
 	<a href="helloWeb">HelloWeb</a>
 </body>

@@ -47,4 +47,9 @@ public class Phone {
 	public void setPerson(Person person) {
 		this.person = person;
 	}
+
+	@Override
+	public String toString() {
+		return "Phone [id=" + id + ", number=" + number + ", person=" + person + "]";
+	}
 }

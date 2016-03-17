@@ -45,6 +45,11 @@ public class InitDataBase {
 			phone.setNumber("656-654-645");
 			phone.setPerson(person);
 			phoneManager.createPhone(phone);
+			phone = new Phone();
+			phone.setNumber("111-222-333");
+			phone.setPerson(person);
+			phoneManager.createPhone(phone);
+
 			try {
 				logger.info("query-6 " + personManager.queryPersonById(new Long(1)));
 			} catch (Exception e) {
@@ -56,7 +61,18 @@ public class InitDataBase {
 			
 			Person personByPhoneCriteria = personManager.queryPersonByPhoneCriteria("656-654-645");
 			logger.info("query-9 " + personByPhoneCriteria);
-			logger.info("query-10 " + personByPhoneCriteria.getPhones());
+			logger.info("query-10 " + personByPhoneCriteria.getPhones().size());
+			
+			phone = personByPhoneCriteria.getPhones().get(1);
+			logger.info("phone old -->" + phone);
+			phone.setNumber("111-111-111");
+			phoneManager.updatePhone(phone);
+			
+			logger.info("phone new -->" + personByPhoneCriteria.getPhones().get(1));
+			
+			
+			
+			
 			
 			
 		} catch (Exception e) {

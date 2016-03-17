@@ -75,6 +75,13 @@ public class Person {
 		this.phones = phones;
 	}
 
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", idCard=" + idCard + "]";
+	}
+
+	
+	
 //	@Override
 //	public String toString() {
 //		return ToStringBuilder.reflectionToString(this);
