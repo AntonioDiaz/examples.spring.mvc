@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.Fetch;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
@@ -22,7 +21,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.persistence.Person;
-import com.persistence.Phone;
 
 @Repository
 @Transactional
@@ -128,7 +126,7 @@ public class PersonDAOImpl implements PersonDAO {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<Person> query = builder.createQuery(Person.class);
 		Root<Person> personRoot = query.from(Person.class);		
-		Fetch<Person, Phone> myFetch = personRoot.fetch("phones",  JoinType.LEFT);
+		personRoot.fetch("phones",  JoinType.LEFT);
 		query.where(builder.equal(personRoot.get("firstName"), myPhone));
 		//query.where(builder.equal(myFetch.get("firstName"), myPhone));
 		resultList = entityManager.createQuery(query).getResultList();

@@ -1,5 +1,7 @@
 package com.daos;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -29,5 +31,10 @@ public class PhoneDAOImpl implements PhoneDAO {
 	@Override
 	public void remove(Phone phone) throws Exception {
 		entityManager.remove(entityManager.contains(phone) ? phone : entityManager.merge(phone));
+	}
+
+	@Override
+	public List<Phone> getPhoneAll() {
+		return entityManager.createQuery("Select a From Phone a", Phone.class).getResultList();
 	}
 }
