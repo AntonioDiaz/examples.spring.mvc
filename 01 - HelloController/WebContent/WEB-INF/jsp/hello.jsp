@@ -8,5 +8,9 @@
     <h3>Hello Controller</h3>
     <br>
     ${message}
+    <hr>
+    <br>
+    User: ${mail_user}<br>
+    Password: ${mail_password}<br>
   </body>
 </html>
