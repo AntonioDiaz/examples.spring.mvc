@@ -15,12 +15,15 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.google.appengine.labs.repackaged.org.json.JSONException;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,18 +33,20 @@ public class MyController {
 
 	private static final Logger logger = Logger.getLogger(MyController.class.getName());
 
+	@Autowired Sendgrid sendGrid;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String wellcomePage(ModelMap modelMap) {
 		logger.info("wellcomePage");
-		return "mail_form";
+		return "index";
 	}
 
-	@RequestMapping(value = "/sendMail", method = RequestMethod.GET)
+	@RequestMapping(value = "/sendMailAPI", method = RequestMethod.GET)
 	public ModelAndView sendMailPage(
 			@RequestParam(value = "from") String sendFrom, 
 			@RequestParam(value = "to") String sendTo) {
 		logger.info("sendMailPage");
-		ModelAndView modelAndView = new ModelAndView("mail_form");
+		ModelAndView modelAndView = new ModelAndView("index");
 		Properties properties = new Properties();
 		Session session = Session.getDefaultInstance(properties, null);
 		try {
@@ -68,4 +73,29 @@ public class MyController {
 		}
 		return modelAndView;
 	}
+	
+    @RequestMapping(value="/sendMailGrid", method=RequestMethod.POST)
+    public ModelAndView sendMail( 
+    		@RequestParam(value = "from")String from, 
+    		@RequestParam(value = "to")String to, 
+    		@RequestParam(value = "text")String text) {
+    	ModelAndView modelAndView = new ModelAndView("index");
+    	// set email data
+    	sendGrid.setTo(to);
+    	sendGrid.setFrom(from);
+    	sendGrid.setSubject("Subject goes here");
+    	sendGrid.setText("Hello World!");
+    	sendGrid.setHtml(text);
+    	// send your message
+    	try {
+			sendGrid.send();
+			modelAndView.addObject("result", "ok");
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			modelAndView.addObject("result", "fail");
+			e.printStackTrace();
+		}
+        return modelAndView;
+    } 
+	
 }
