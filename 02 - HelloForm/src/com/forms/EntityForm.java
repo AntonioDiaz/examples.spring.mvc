@@ -15,8 +15,6 @@ public class EntityForm {
 		this.surname = surname;
 		this.birthdate = birthdate;
 	}
-
-	
 	
 	private Long id;
 	private String name;

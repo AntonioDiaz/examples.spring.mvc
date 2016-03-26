@@ -18,6 +18,7 @@ public class EntityFormValidator implements Validator {
 	@Override
 	public void validate(Object target, Errors errors) {
 		//EntityForm entityForm = (EntityForm)target;
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "name_required");	
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "field_required");	
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "surname", "field_required");	
 	}
 }

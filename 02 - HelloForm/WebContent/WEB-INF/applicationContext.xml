@@ -11,6 +11,8 @@
 	<context:component-scan base-package="com.controllers" />
 	<context:component-scan base-package="com.validators" />
 
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/jsp/</value>
@@ -23,4 +25,5 @@
 	<bean class="org.springframework.context.support.ReloadableResourceBundleMessageSource" id="messageSource" 
 		p:basenames="WEB-INF/i18n/messages,WEB-INF/i18n/application" p:fallbackToSystemLocale="false" />
 	
+	  <mvc:annotation-driven />
 </beans>  
