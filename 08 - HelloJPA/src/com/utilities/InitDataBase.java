@@ -69,12 +69,6 @@ public class InitDataBase {
 			phoneManager.updatePhone(phone);
 			
 			logger.info("phone new -->" + personByPhoneCriteria.getPhones().get(1));
-			
-			
-			
-			
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);
