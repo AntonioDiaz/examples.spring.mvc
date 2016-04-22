@@ -23,7 +23,7 @@ public class MyController {
 		logger.debug("wellcomePage");
 		modelMap.addAttribute("message", "Spring 3 MVC Hello World");		
 		try {
-			modelMap.addAttribute("persons", personManager.queryPersonAll());
+			modelMap.addAttribute("people_list", personManager.queryPersonAll());
 			modelMap.addAttribute("phones", phoneManager.queryPhoneAll());
 		} catch (Exception e) {
 			logger.error(e);
