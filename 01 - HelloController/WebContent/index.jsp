@@ -9,5 +9,7 @@
 	<h1>Spring MVC dummy example.</h1>
 	<br>
 	<a href="helloWeb">HelloWeb</a>
+	<br>
+	<a href="thowsException">Throws exception in controller</a>
 </body>
 </html>
