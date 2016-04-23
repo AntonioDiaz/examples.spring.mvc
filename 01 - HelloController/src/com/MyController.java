@@ -42,7 +42,6 @@ public class MyController {
 	@ExceptionHandler(Exception.class)
 	public ModelAndView handleAllException(HttpServletRequest req,Exception exception) {
 	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
-
 	    ModelAndView mav = new ModelAndView();
 	    mav.addObject("exception", exception);
 	    mav.addObject("url", req.getRequestURL());
