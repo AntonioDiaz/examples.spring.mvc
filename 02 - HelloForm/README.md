@@ -6,3 +6,5 @@ Example of how to work with forms in Spring MVC 3.2.
 * Declare a validator  
 * Using properties file to show errors  
 * Using log4j  
+
+See wiki for more info: https://github.com/AntonioDiaz/examples.spring.mvc/wiki/02.-HelloForm
