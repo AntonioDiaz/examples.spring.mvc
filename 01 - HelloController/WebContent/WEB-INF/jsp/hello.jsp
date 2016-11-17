@@ -11,6 +11,7 @@
     <hr>
     <br>
     User: ${mail_user}<br>
+    Email address: ${mail_address}<br>
     Password: ${mail_password}<br>
   </body>
 </html>

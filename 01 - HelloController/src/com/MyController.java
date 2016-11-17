@@ -1,5 +1,7 @@
 package com;
 
+import java.util.ResourceBundle;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
 @Controller
 public class MyController {
 
@@ -19,12 +20,15 @@ public class MyController {
 	String mailUser;
 	@Value("${mail_password}")
 	String mailPassword;
+	
+	public static ResourceBundle settings = ResourceBundle.getBundle("config");
 
 	private static final Logger logger = Logger.getLogger(MyController.class);
 	
 	@RequestMapping(value="/helloWeb", method=RequestMethod.GET)
 	public String wellcomePage(ModelMap modelMap) {
 		logger.debug("helloWeb modelMap -->" +  modelMap);
+		modelMap.addAttribute("mail_address", settings.getString("mail_address"));
 		modelMap.addAttribute("mail_user", mailUser);
 		modelMap.addAttribute("mail_password", mailPassword);
 		modelMap.addAttribute("message", "Spring 3 MVC Hello World");
