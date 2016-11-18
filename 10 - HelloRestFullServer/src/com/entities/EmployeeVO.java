@@ -7,6 +7,8 @@ public class EmployeeVO {
 	private String lastName;
 	private String email;
 
+	public EmployeeVO(){}
+	
 	public EmployeeVO(Integer id, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
@@ -46,4 +48,11 @@ public class EmployeeVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	public String toString() {
+		return "EmployeeVO [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+	}
+	
+	
 }
