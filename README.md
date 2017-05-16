@@ -4,6 +4,7 @@ Spring mvc examples for myself in case I lose my memory but also it would be gre
 
 See wiki for more info: https://github.com/AntonioDiaz/examples.spring.mvc/wiki
 
+web project: https://antoniodiaz.github.io/examples.spring.mvc/
 ---
 
 
