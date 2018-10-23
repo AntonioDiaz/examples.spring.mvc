@@ -17,7 +17,7 @@ Thanks to: <a href="http://howtodoinjava.com/spring/spring-restful/spring-rest-h
 
 ***
 ### Call example
-![](https://antoniodiaz.github.io/images/spring_mvc/1010_call_example.jpg)
+![](https://antoniodiaz.github.io/images/spring_mvc/10_call_example.jpg)
 
 ***
 ### pom.xml
