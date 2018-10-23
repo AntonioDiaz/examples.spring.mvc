@@ -15,11 +15,12 @@
 
 ***
 ### Project structure  
-[[https://antoniodiaz.github.io/images/spring_mvc/01_structure.jpg]]
+![Project structure](https://antoniodiaz.github.io/images/spring_mvc/01_structure.jpg "project structure")
+
 
 ***
 ### Front End
-[[https://antoniodiaz.github.io/images/spring_mvc/01_front_end.jpg]]
+![Front End](https://antoniodiaz.github.io/images/spring_mvc/01_front_end.jpg "front end")
 
 ***
 ### pom.xml
