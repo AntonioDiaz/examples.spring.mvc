@@ -20,11 +20,11 @@ public class MyController {
 	String mailUser;
 	@Value("${mail_password}")
 	String mailPassword;
-	
+
 	public static ResourceBundle settings = ResourceBundle.getBundle("config");
 
 	private static final Logger logger = Logger.getLogger(MyController.class);
-	
+
 	@RequestMapping(value="/helloWeb", method=RequestMethod.GET)
 	public String wellcomePage(ModelMap modelMap) {
 		logger.debug("helloWeb modelMap -->" +  modelMap);
@@ -34,15 +34,15 @@ public class MyController {
 		modelMap.addAttribute("message", "Spring 3 MVC Hello World");
 		return "hello";
 	}
-	
+
 	@RequestMapping(value="/thowsException", method=RequestMethod.GET)
 	public String throwsException(ModelMap modelMap) throws Exception {
 		String str = null;
-		//must throw an exception. 
+		//must throw an exception.
 		logger.debug(str.length());
 		return "doesntreachhere";
 	}
-	
+
 	@ExceptionHandler(Exception.class)
 	public ModelAndView handleAllException(HttpServletRequest req,Exception exception) {
 	    logger.error("Request: " + req.getRequestURL() + " raised " + exception);
@@ -52,5 +52,5 @@ public class MyController {
 	    mav.setViewName("error");
 	    return mav;
 	}
-	
+
 }
