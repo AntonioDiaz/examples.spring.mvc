@@ -22,8 +22,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 		user.setEnabled(true);
 		user.setBannedUser(false);
 		user.setAccountNonExpired(true);
-		/** password: admin*/
-		user.setPassword("bb37067afeb4ee16d668eef073ca6eea4f3b4a1fc6c68e3c0b1fd01a5fb7f5ad");
+		/** password:  "admin" */
+		user.setPassword("8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
 		user.setAdmin(true);
 		return user;
 	}
