@@ -187,7 +187,7 @@ log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:
 ### Initialize app  
 * applicationContext.xml
 ``` xml
-	<bean id="initDataBase" class="com.InitDataBase" init-method="init"/>
+	<bean id="initDataBase" class="main.java.com.InitDataBase" init-method="init"/>
 ```
 
 * InitDataBase.java
