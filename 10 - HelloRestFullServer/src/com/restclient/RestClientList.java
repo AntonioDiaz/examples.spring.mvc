@@ -8,7 +8,7 @@ import com.entities.EmployeeVO;
 public class RestClientList {
 
 	public static void main(String[] args) {
-		final String uri = "http://localhost:8080/helloRestFullServer/employees/";
+		final String uri = "http://localhost:8080/employees/";
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<EmployeeVO[]> forEntity = restTemplate.getForEntity(uri, EmployeeVO[].class);
 		System.out.println(forEntity.getStatusCode());
