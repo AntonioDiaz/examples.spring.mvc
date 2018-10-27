@@ -83,6 +83,17 @@ public class Customer {
 	}
 }
 ```
+**Add filter to xml**
+``` xml
+<filter>
+	<filter-name>ObjectifyFilter</filter-name>
+	<filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>ObjectifyFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+```
 
 ***
 ### DAO example
